@@ -38,13 +38,13 @@ app/
 │   │       │   │   ├── database/
 │   │       │   │   │   └── AppDatabase.kt (Configuração da base de dados Room)
 │   │       │   │   └── entity/
-│   │       │   │       ├── BeneficiaryEntity.kt (Modelo para beneficiar na base de dados)
+│   │       │   │       ├── BeneficiaryEntity.kt (Modelo para beneficiários na base de dados)
 │   │       │   │       ├── DonationEntity.kt (Modelo para doações na base de dados)
 │   │       │   │       └── VolunteerEntity.kt (Modelo para voluntários na base de dados)
 │   │       │   │
 │   │       │   └── remote/
 │   │       │       ├── api/
-│   │       │       │   └── ApoioApi.kt (Interface Retrofit para integração com Firebase)
+│   │       │       │   └── Apoio360Api.kt (Interface Retrofit para integração com Firebase)
 │   │       │       ├── model/
 │   │       │       │   ├── BeneficiaryDto.kt (Modelo para beneficiários recebidos do Firebase)
 │   │       │       │   ├── DonationDto.kt (Modelo para doações recebidas do Firebase)
@@ -89,7 +89,7 @@ app/
 │   │               ├── screen/
 │   │               │   └── MainScreen.kt (Ecrã principal para organizar a navegação)
 │   │               └── theme/
-│   │                   └── ApoioTheme.kt (Configuração do tema visual da aplicação)
+│   │                   └── Apoio360Theme.kt (Configuração do tema visual da aplicação)
 │   │
 │   └── test/
 │       ├── BeneficiaryDaoTest.kt (Testes para a base de dados de beneficiários)
