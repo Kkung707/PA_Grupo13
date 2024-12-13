@@ -1,0 +1,58 @@
+# Diretório de build
+/build/
+/app/build/
+
+# Configurações específicas do Android Studio
+/.idea/
+/*.iml
+
+# Ficheiros de sistema específicos
+/.DS_Store
+/.gradle/
+/local.properties
+
+# Cache do Gradle
+/.gradle/
+/gradle/
+/.gradle/
+/*.gradletasknamecache
+/*.gradleide
+
+# Configurações do IntelliJ/Android Studio
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/assetWizardSettings.xml
+.idea/dictionaries/
+/.idea/libraries/
+
+# Configuração pessoal de utilizador
+.idea/caches/
+/.idea/usageStatistics/
+/.idea/compiler.xml
+
+# Ficheiros de sistema comuns
+*.log
+*.lock
+*.bak
+*.tmp
+*.swp
+
+# Ficheiros relacionados com o Git
+*.orig
+*.rej
+*~.tmp
+*.class
+
+# Ficheiros de output
+*.apk
+*.ap_
+*.keystore
+
+# Ficheiros de dependências
+/.cxx/
+/.externalNativeBuild/
+
+# Configuração do sistema operacional
+Thumbs.db
+ehthumbs.db
