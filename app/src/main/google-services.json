@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "857088380547",
+    "project_id": "apoio360",
+    "storage_bucket": "apoio360.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:857088380547:android:feb921cbb5b6369f8a95b6",
+        "android_client_info": {
+          "package_name": "com.example.apoio360"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdKIautDK7POQG1tzcaOfB-0RygPzuMUA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
