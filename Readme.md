@@ -111,6 +111,7 @@ app/
 │   │       │       ├── BeneficiaryRepositoryImpl.kt (Repositório que implementa a lógica para aceder e sincronizar dados de beneficiários com o Firebase e Room)
 │   │       │       ├── DonationRepositoryImpl.kt (Repositório que implementa a lógica para registo e armazenamento de doações)
 │   │       │       └── ScheduleRepositoryImpl.kt (Repositório que implementa a lógica para criar e gerir escalas de voluntários)
+│   │       │   
 │   │       ├── domain/
 │   │       │   ├── model/
 │   │       │   │   ├── BeneficiaryDomain.kt (Modelo de domínio que encapsula dados do beneficiário para lógica de negócio)
@@ -120,6 +121,7 @@ app/
 │   │       │       ├── GetBeneficiaryUseCase.kt (Caso de uso que coordena a obtenção de dados de beneficiários)
 │   │       │       ├── RegisterDonationUseCase.kt (Caso de uso que coordena o registo de doações)
 │   │       │       └── OrganizeScheduleUseCase.kt (Caso de uso que coordena a organização de escalas de voluntários)
+│   │       │
 │   │       ├── presentation/
 │   │       │   ├── beneficiary/
 │   │       │   │   ├── BeneficiaryListScreen.kt (Ecrã que exibe a lista de beneficiários e permite interação com os dados)
@@ -134,12 +136,15 @@ app/
 │   │       │       ├── CalendarScreen.kt (Ecrã para voluntários registarem a sua disponibilidade)
 │   │       │       ├── ScheduleScreen.kt (Ecrã para gestores organizarem turnos de voluntários)
 │   │       │       └── ScheduleViewModel.kt (ViewModel que gere a lógica para o ecrã de organização de escalas)
+│   │       │
 │   │       ├── utils/
 │   │       │   └── Extensions.kt (Funções utilitárias e extensões utilizadas em várias partes da aplicação)
+│   │       │
 │   │       └── di/
 │   │           ├── FirebaseModule.kt (Configura as dependências necessárias para integrar o Firebase)
 │   │           ├── RoomModule.kt (Configura as dependências necessárias para a base de dados Room)
 │   │           └── RepositoryModule.kt (Configura as dependências necessárias para os repositórios de dados)
+│   │
 └── build.gradle.kts (Ficheiro de configuração do Gradle para o projeto)
 ```
 
