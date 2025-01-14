@@ -1,110 +1,360 @@
-# Apoio360 - Loja Social
+# Apoio360 - README
 
-## Autor
-**Membros do Grupo:**
-- Daniela Brito (N.º 25591)
-- Joana Pimenta (N.º 22999)
-- José Pinheiro (N.º 23129)
-- Rodrigo Pilar (N.º 26536)
-
-**Curso:** Licenciatura em Engenharia de Sistemas Informáticos, 3.º Ano  
-**Unidade Curricular:** Projeto Aplicado  
-**Docente:** Professora Patrícia Leite  
-**Ano Letivo:** 2024/2025  
-
----
+## Constituição do Grupo  
+| Número  | Nome           | Email                  |
+| :---    | :---           | :---                  |
+| 22999   | Joana Pimenta  | a22999@alunos.ipca.pt |
+| 23129   | José Pinheiro  | a23129@alunos.ipca.pt |
+| 25591   | Daniela Brito  | a25591@alunos.ipca.pt |
+| 26536   | Rodrigo Pilar  | a26536@alunos.ipca.pt |
 
 ## Introdução
 A aplicação **Apoio360** tem como objetivo modernizar a gestão de uma Loja Social que presta apoio a famílias em situação de vulnerabilidade. O projeto visa digitalizar e simplificar processos como o registo de beneficiários, gestão de doações e organização de turnos de voluntários, promovendo uma abordagem mais eficiente e intuitiva.
 
-A aplicação será desenvolvida em **Kotlin**, utilizando o **Firebase** como backend para gestão de dados e infraestrutura. O foco estará na criação de uma interface amigável e acessível, com funcionalidades que atendam às necessidades de voluntários e gestores.
+Desenvolvida em **Kotlin** e utilizando o **Firebase** como backend para gestão de dados e infraestrutura, a aplicação concentra-se na criação de uma interface amigável e acessível. Com funcionalidades desenhadas para atender às necessidades específicas de voluntários e gestores, o **Apoio360** busca facilitar o dia a dia das operações da loja e melhorar o apoio prestado à comunidade.
 
-## Estrutura do Projeto
-A organização do código seguirá o modelo de **Clean Architecture**, dividindo as responsabilidades em camadas distintas. Esta abordagem facilita a manutenção e a escalabilidade do projeto.
+A aplicação "Loja Social" foi desenvolvida para modernizar a gestão da Loja Social de São Lázaro e São João de Souto, em Braga. Esta aplicação substitui processos manuais, como folhas de Excel e papel, por uma solução digital eficiente que facilita o registo de beneficiários, a gestão de doações e a organização de turnos de voluntários. Com uma interface simples e intuitiva, a aplicação torna os processos mais rápidos e acessíveis, promovendo um atendimento organizado e eficaz às famílias em situação de vulnerabilidade social e económica.
 
-### Estrutura de Pastas e Ficheiros (Prevista)
-```
-app/
-├── src/
-│   ├── main/
-│   │   └── java/com/example/apoio360/
-│   │       ├── MainActivity.kt (Classe principal da aplicação)
-│   │       ├── MyApplication.kt (Configuração inicial da aplicação)
-│   │       │
-│   │       ├── data/ 
-│   │       │   ├── local/
-│   │       │   │   ├── dao/
-│   │       │   │   │   └── BeneficiaryDao.kt (Interface para operações na base de dados de beneficiários)
-│   │       │   │   ├── database/
-│   │       │   │   │   └── AppDatabase.kt (Configuração da base de dados Room)
-│   │       │   │   └── entity/
-│   │       │   │       ├── BeneficiaryEntity.kt (Modelo para beneficiários na base de dados)
-│   │       │   │       ├── DonationEntity.kt (Modelo para doações na base de dados)
-│   │       │   │       └── VolunteerEntity.kt (Modelo para voluntários na base de dados)
-│   │       │   │
-│   │       │   └── remote/
-│   │       │       ├── api/
-│   │       │       │   └── Apoio360Api.kt (Interface Retrofit para integração com Firebase)
-│   │       │       ├── model/
-│   │       │       │   ├── BeneficiaryDto.kt (Modelo para beneficiários recebidos do Firebase)
-│   │       │       │   ├── DonationDto.kt (Modelo para doações recebidas do Firebase)
-│   │       │       │   └── VolunteerDto.kt (Modelo para voluntários recebidos do Firebase)
-│   │       │       └── repository/
-│   │       │           ├── BeneficiaryRepositoryImpl.kt (Repositório para gerir beneficiários)
-│   │       │           └── DonationRepositoryImpl.kt (Repositório para gerir doações)
-│   │       │
-│   │       ├── di/
-│   │       │   ├── NetworkModule.kt (Configuração de Retrofit e Firebase)
-│   │       │   ├── RoomModule.kt (Configuração da base de dados Room)
-│   │       │   └── RepositoryModule.kt (Configuração dos repositórios)
-│   │       │
-│   │       ├── domain/
-│   │       │   ├── model/
-│   │       │   │   ├── Beneficiary.kt (Modelo de domínio para beneficiários)
-│   │       │   │   ├── Donation.kt (Modelo de domínio para doações)
-│   │       │   │   └── Volunteer.kt (Modelo de domínio para voluntários)
-│   │       │   │
-│   │       │   ├── repository/
-│   │       │   │   └── BeneficiaryRepository.kt (Interface para operações relacionadas com beneficiários)
-│   │       │   │
-│   │       │   └── use_case/
-│   │       │       ├── AddBeneficiaryUseCase.kt (Caso de uso para adicionar beneficiários)
-│   │       │       ├── GetDonationsUseCase.kt (Caso de uso para listar doações)
-│   │       │       └── ManageShiftsUseCase.kt (Caso de uso para gerir turnos)
-│   │       │
-│   │       └── presentation/
-│   │           ├── beneficiary/
-│   │           │   ├── BeneficiaryScreen.kt (Ecrã para gestão de beneficiários)
-│   │           │   └── BeneficiaryViewModel.kt (ViewModel para beneficiários)
-│   │           │
-│   │           ├── donation/
-│   │           │   ├── DonationScreen.kt (Ecrã para gestão de doações)
-│   │           │   └── DonationViewModel.kt (ViewModel para doações)
-│   │           │
-│   │           ├── volunteer/
-│   │           │   ├── ShiftScreen.kt (Ecrã para gestão de turnos de voluntários)
-│   │           │   └── ShiftViewModel.kt (ViewModel para turnos)
-│   │           │
-│   │           └── ui/
-│   │               ├── screen/
-│   │               │   └── MainScreen.kt (Ecrã principal para organizar a navegação)
-│   │               └── theme/
-│   │                   └── Apoio360Theme.kt (Configuração do tema visual da aplicação)
-│   │
-│   └── test/
-│       ├── BeneficiaryDaoTest.kt (Testes para a base de dados de beneficiários)
-│       ├── DonationDaoTest.kt (Testes para a base de dados de doações)
-│       └── ShiftManagementTest.kt (Testes para a gestão de turnos)
-│
-└── build.gradle.kts (Configuração do Gradle para o projeto)
-```
+A Loja Social é uma organização localizada em Braga, dedicada a fornecer apoio a famílias em situação de vulnerabilidade social e económica. Este apoio é realizado através da doação gratuita de bens essenciais, como roupa, calçado e utensílios domésticos. O objetivo principal da aplicação é facilitar a gestão operacional da loja, tornando os processos mais organizados, rápidos e acessíveis tanto para voluntários como para beneficiários.
 
-## Próximos Passos
-1. Criar os ficheiros base para a estrutura acima.
-2. Configurar a integração com o Firebase (autenticação e base de dados).
-3. Implementar os primeiros casos de uso: adicionar beneficiários, registar doações e organizar turnos de voluntários.
-4. Criar mockups e protótipos para a interface usando o Figma.
-5. Testar todas as funcionalidades implementadas para garantir estabilidade e usabilidade.
+Atualmente, a gestão da loja é feita de forma manual, utilizando folhas de cálculo e comunicações informais, o que dificulta o acompanhamento e a eficiência no atendimento às famílias. Com a implementação da aplicação, espera-se automatizar o registo de beneficiários, gerir a capacidade da loja, registar doações de forma detalhada e criar escalas de voluntários com base nas suas disponibilidades.
+
+A aplicação foi desenvolvida para atender às necessidades específicas da loja, integrando ferramentas modernas como Firebase para gestão de dados em tempo real e Kotlin para desenvolvimento mobile. A interface foi desenhada para ser simples e intuitiva, garantindo que mesmo utilizadores com menor literacia digital possam utilizá-la de forma eficaz.
+
+### Tecnologias Utilizadas
+- **Kotlin:** Linguagem de programação principal.
+- **Firebase:** Base de dados em tempo real, autenticação e armazenamento.
+- **Room:** Armazenamento local para dados offline.
+- **Retrofit:** Comunicação com APIs externas.
+- **Android Studio:** IDE de desenvolvimento.
+
+## Funcionalidades Principais
+- **Gestão de Beneficiários:** Registo e consulta de dados.
+- **Check-in e Check-out:** Fluxo simplificado de entrada e saída de beneficiários.
+- **Gestão de Doações:** Registo e organização de doações, com anexação de imagens.
+- **Escalas de Voluntários:** Planeamento e gestão de turnos.
+- **Relatórios:** Geração de relatórios para suporte à gestão.
+- **Segurança:** Diferentes níveis de acesso para voluntários e gestores.
+
+---
+## Processo de Atendimento na Loja Social com 'Apoio360'
+
+#### 1. **Antes de Abrir a Loja**
+
+O colaborador da Loja Social chega ao local para preparar a abertura. O primeiro passo é autenticar-se na aplicação **Apoio360**. Para isso, abre a aplicação no dispositivo móvel e é recebido pelo ecrã de **Login**.
+
+- **O que acontece na aplicação?**
+  - O ficheiro **`MainActivity.kt`** é iniciado. Este ficheiro carrega o sistema de navegação principal da aplicação, configurando o **`NavHost`**, que define o ecrã inicial como o **`LoginScreen`**.
+  - O **`LoginScreen`** verifica se o utilizador já está autenticado através do **Firebase Authentication**.
+    - Caso já exista uma sessão válida, o utilizador é redirecionado automaticamente para o **HomeScreen**.
+    - Caso contrário, é necessário introduzir as credenciais (email e password).
+  - Após introduzir as credenciais, o sistema autentica o utilizador através do Firebase. Se for bem-sucedido:
+    - O utilizador é redirecionado para o **HomeScreen**.
+    - O ficheiro **`FirebaseService.kt`** inicializa, garantindo que os dados em tempo real da loja (como capacidade atual e doações) estão sincronizados com a base de dados.
+
+#### 2. **Chegada do Beneficiário**
+
+Quando a loja abre, um beneficiário aproxima-se para realizar um check-in. O colaborador abre a aplicação e navega para o ecrã de **CheckIn**.
+
+- **O que acontece na aplicação?**
+  - O ficheiro **`CheckInScreen.kt`** é carregado. Este ecrã permite pesquisar pelo nome ou número de telefone do beneficiário.
+  - Ao introduzir os dados, o sistema comunica com o **`BeneficiaryRepositoryImpl.kt`**. Este repositório:
+    - Consulta os dados locais através do **RoomDatabase** (via **`BeneficiaryDao`**).
+    - Sincroniza a informação com o Firebase Realtime Database para garantir que os dados estão atualizados.
+  - Se o beneficiário for encontrado:
+    - Os detalhes do beneficiário são exibidos, como nome, histórico de visitas e estado atual (por exemplo, se está autorizado a receber doações).
+    - O colaborador confirma a entrada no sistema, e o ficheiro **`FirebaseService.kt`** atualiza o estado no Firebase (como a lotação atual da loja).
+  - Se o beneficiário não for encontrado:
+    - O colaborador pode registar um novo beneficiário diretamente no sistema, utilizando o mesmo ecrã. Este registo é gerido pelo **`BeneficiaryRepositoryImpl.kt`**, que atualiza o Firebase Realtime Database e o **RoomDatabase**.
+
+
+#### 3. **Distribuição de Doações**
+
+O beneficiário desloca-se ao espaço da loja para escolher os itens de que necessita. Após selecionar os produtos, o colaborador utiliza o ecrã de **Doações** para registar o que foi entregue.
+
+- **O que acontece na aplicação?**
+  - O colaborador navega para o **`DonationScreen.kt`**, que permite registar as doações.
+  - O colaborador introduz os itens entregues (por exemplo, roupa ou utensílios domésticos) e pode adicionar imagens dos produtos através do sistema de anexos.
+  - O ficheiro **`DonationRepositoryImpl.kt`** gere este registo:
+    - Os detalhes da doação são enviados para o Firebase Realtime Database.
+    - As imagens associadas são carregadas para o Firebase Storage, com os respetivos URLs armazenados no Firebase Realtime Database.
+  - Após a submissão, o sistema atualiza o histórico de doações do beneficiário, acessível no **`BeneficiaryListScreen.kt`**.
+
+
+#### 4. **Encerramento da Loja**
+
+No final do dia, o colaborador organiza os dados e verifica os relatórios no ecrã de **Relatórios**.
+
+- **O que acontece na aplicação?**
+  - No **`HomeScreen`**, o colaborador seleciona a opção de relatórios, que carrega o **`ReportScreen.kt`**.
+  - O ficheiro **`ReportRepositoryImpl.kt`** gere a geração de relatórios diários, consolidando dados de:
+    - Beneficiários atendidos.
+    - Itens doados.
+    - Disponibilidade de voluntários e escalas futuras.
+  - Estes relatórios são exibidos em tempo real, com gráficos ou tabelas, gerados a partir dos dados armazenados no Firebase Realtime Database.
+
 
 ---
 
+## Estrutura de Pastas e Ficheiros
+```plaintext
+app/
+├── src/
+│   ├── main/
+│   │   └── java/com/example/LojaSocial/
+│   │       ├── MainActivity.kt (Classe principal que configura a navegação e inicializa dependências como Firebase)
+│   │       ├── data/
+│   │       │   ├── local/
+│   │       │   │   ├── RoomDatabase.kt (Configura a base de dados local Room e regista tabelas)
+│   │       │   │   └── dao/
+│   │       │   │       └── BeneficiaryDao.kt (Interface para aceder e manipular dados de beneficiários na base de dados local)
+│   │       │   ├── remote/
+│   │       │   │   ├── api/
+│   │       │   │   │   └── FirebaseService.kt (Implementa serviços de interação com o Firebase, como atualizações em tempo real)
+│   │       │   │   ├── model/
+│   │       │   │   │   ├── Beneficiary.kt (Modelo de dados para representar beneficiários)
+│   │       │   │   │   ├── Donation.kt (Modelo de dados para representar doações)
+│   │       │   │   │   └── Schedule.kt (Modelo de dados para representar escalas de voluntários)
+│   │       │   └── repository/
+│   │       │       ├── BeneficiaryRepositoryImpl.kt (Repositório que implementa a lógica para aceder e sincronizar dados de beneficiários com o Firebase e Room)
+│   │       │       ├── DonationRepositoryImpl.kt (Repositório que implementa a lógica para registo e armazenamento de doações)
+│   │       │       └── ScheduleRepositoryImpl.kt (Repositório que implementa a lógica para criar e gerir escalas de voluntários)
+│   │       ├── domain/
+│   │       │   ├── model/
+│   │       │   │   ├── BeneficiaryDomain.kt (Modelo de domínio que encapsula dados do beneficiário para lógica de negócio)
+│   │       │   │   ├── DonationDomain.kt (Modelo de domínio que encapsula dados de doações para lógica de negócio)
+│   │       │   │   └── ScheduleDomain.kt (Modelo de domínio que encapsula dados de escalas para lógica de negócio)
+│   │       │   └── use_case/
+│   │       │       ├── GetBeneficiaryUseCase.kt (Caso de uso que coordena a obtenção de dados de beneficiários)
+│   │       │       ├── RegisterDonationUseCase.kt (Caso de uso que coordena o registo de doações)
+│   │       │       └── OrganizeScheduleUseCase.kt (Caso de uso que coordena a organização de escalas de voluntários)
+│   │       ├── presentation/
+│   │       │   ├── beneficiary/
+│   │       │   │   ├── BeneficiaryListScreen.kt (Ecrã que exibe a lista de beneficiários e permite interação com os dados)
+│   │       │   │   └── BeneficiaryViewModel.kt (ViewModel que gere a lógica para o ecrã de lista de beneficiários)
+│   │       │   ├── check_in/
+│   │       │   │   ├── CheckInScreen.kt (Ecrã para registar check-ins e check-outs de beneficiários)
+│   │       │   │   └── CheckInViewModel.kt (ViewModel que gere a lógica para o ecrã de check-in)
+│   │       │   ├── donation/
+│   │       │   │   ├── DonationScreen.kt (Ecrã para registar novas doações e visualizar informações relacionadas)
+│   │       │   │   └── DonationViewModel.kt (ViewModel que gere a lógica para o ecrã de doações)
+│   │       │   └── schedule/
+│   │       │       ├── CalendarScreen.kt (Ecrã para voluntários registarem a sua disponibilidade)
+│   │       │       ├── ScheduleScreen.kt (Ecrã para gestores organizarem turnos de voluntários)
+│   │       │       └── ScheduleViewModel.kt (ViewModel que gere a lógica para o ecrã de organização de escalas)
+│   │       ├── utils/
+│   │       │   └── Extensions.kt (Funções utilitárias e extensões utilizadas em várias partes da aplicação)
+│   │       └── di/
+│   │           ├── FirebaseModule.kt (Configura as dependências necessárias para integrar o Firebase)
+│   │           ├── RoomModule.kt (Configura as dependências necessárias para a base de dados Room)
+│   │           └── RepositoryModule.kt (Configura as dependências necessárias para os repositórios de dados)
+└── build.gradle.kts (Ficheiro de configuração do Gradle para o projeto)
+```
+
+---
+
+## Fluxo de Dados
+
+### 1. **Início da Aplicação**
+- O ficheiro **`MainActivity.kt`** serve como ponto de entrada da aplicação. Ele configura a navegação principal, inicializando o `NavHost`, que gerencia os diferentes ecrãs da aplicação. A configuração inicial é feita utilizando o Jetpack Navigation, onde as rotas para cada ecrã são definidas no ficheiro:
+  
+    ```kotlin
+    @Composable
+    fun MainActivityNavHost(navController: NavHostController) {
+        NavHost(
+            navController = navController,
+            startDestination = "loginScreen"
+        ) {
+            composable("loginScreen") { LoginScreen(navController) }
+            composable("homeScreen") { HomeScreen(navController) }
+            composable("checkInScreen") { CheckInScreen(navController) }
+        }
+    }
+    ```
+
+- A navegação é gerida pelo objeto `NavController`, que permite transitar entre ecrãs chamando métodos como `navigate()` para direcionar o utilizador ao próximo ecrã.
+
+    ```kotlin
+    navController.navigate("homeScreen")
+    ```
+
+- Além disso, **`MainActivity.kt`** utiliza o `setContent` para definir o layout principal, aplicando o tema da aplicação através de `LojaSocialTheme`.
+
+    ```kotlin
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            LojaSocialTheme {
+                val navController = rememberNavController()
+                MainActivityNavHost(navController)
+            }
+        }
+    }
+    ```
+
+- Este ficheiro também é responsável por inicializar as dependências, como o Firebase, garantindo que todos os serviços estejam disponíveis ao iniciar a aplicação:
+
+    ```kotlin
+    FirebaseApp.initializeApp(this)
+    ```
+
+### 2. **Autenticação**
+- Utilizadores autenticam-se através do Firebase Authentication. Após o login, são redirecionados para o respetivo ecrã, consoante o seu perfil (voluntário ou gestor).
+
+### 3. **Gestão de Beneficiários**
+- O ecrã **`BeneficiaryListScreen.kt`** permite aos gestores aceder à lista de beneficiários.
+- O **`BeneficiaryViewModel.kt`** gere a interação entre a interface e os dados através da comunicação com o repositório **`BeneficiaryRepositoryImpl.kt`**, responsável por obter, atualizar e armazenar informações sobre os beneficiários.
+  - Para obter os dados, o método **`getAllBeneficiaries`** no repositório é chamado:
+    ```kotlin
+    fun getAllBeneficiaries(): LiveData<List<Beneficiary>> {
+        return Transformations.map(beneficiaryDao.getAll()) { entities ->
+            entities.map { it.toDomainModel() }
+        }
+    }
+    ```
+    Este método converte entidades da base de dados local Room em modelos de domínio utilizáveis na interface.
+  
+  - O **`BeneficiaryRepositoryImpl.kt`** também interage com o Firebase Realtime Database para sincronizar dados:
+    ```kotlin
+    fun syncBeneficiaries() {
+        val databaseRef = FirebaseDatabase.getInstance().getReference("beneficiaries")
+        databaseRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val beneficiaries = snapshot.children.mapNotNull { it.getValue(Beneficiary::class.java) }
+                beneficiaryDao.insertAll(beneficiaries.map { it.toEntity() })
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.e("FirebaseError", error.message)
+            }
+        })
+    }
+    ```
+    Este processo assegura que os dados armazenados localmente estão sempre atualizados com a base de dados remota.
+
+  - O **`BeneficiaryViewModel.kt`** utiliza o método **`syncBeneficiaries`** ao iniciar a aplicação para garantir que a lista apresentada está atualizada:
+    ```kotlin
+    init {
+        viewModelScope.launch {
+            repository.syncBeneficiaries()
+        }
+    }
+    ```
+
+  - Os dados são expostos para a interface através de um **`LiveData`**:
+    ```kotlin
+    val beneficiaries: LiveData<List<Beneficiary>> = repository.getAllBeneficiaries()
+    ```
+
+### 4. **Check-in e Check-out**
+- No ecrã **`CheckInScreen.kt`**, o utilizador pesquisa o beneficiário pelo nome ou telefone.
+- Para sincronizar o estado da lotação em tempo real, o Firebase Realtime Database é utilizado. 
+  - A função **`updateCapacity`** no ficheiro **`FirebaseService.kt`** atualiza o nó correspondente no Realtime Database quando ocorre uma alteração, como o registo de um novo check-in ou check-out.
+  - Por exemplo:
+    ```kotlin
+    fun updateCapacity(currentCapacity: Int) {
+        val databaseRef = FirebaseDatabase.getInstance().getReference("capacity")
+        databaseRef.setValue(currentCapacity)
+    }
+    ```
+  - O ecrã **`CheckInScreen.kt`** utiliza um Listener para observar alterações no nó "capacity" do Firebase e atualizar dinamicamente a interface:
+    ```kotlin
+    val databaseRef = FirebaseDatabase.getInstance().getReference("capacity")
+    databaseRef.addValueEventListener(object : ValueEventListener {
+        override fun onDataChange(snapshot: DataSnapshot) {
+            val capacity = snapshot.getValue(Int::class.java) ?: 0
+            updateCapacityIndicator(capacity)
+        }
+
+        override fun onCancelled(error: DatabaseError) {
+            Log.e("FirebaseError", error.message)
+        }
+    })
+    ```
+- O check-out regista a saída do beneficiário e atualiza o histórico na base de dados Firebase através do método **`registerCheckOut`** no ficheiro **`BeneficiaryRepositoryImpl.kt`**:
+    ```kotlin
+    fun registerCheckOut(beneficiaryId: String) {
+        val checkOutRef = FirebaseDatabase.getInstance().getReference("checkOuts")
+        checkOutRef.child(beneficiaryId).setValue(ServerValue.TIMESTAMP)
+    }
+    ```
+
+### 5. **Gestão de Doações**
+- O ficheiro **`DonationScreen.kt`** permite o registo de doações com anexação de imagens.
+- As informações são enviadas ao Firebase via **`DonationRepositoryImpl.kt`**.
+  - A classe **`DonationRepositoryImpl.kt`** utiliza o Firebase Realtime Database para armazenar detalhes das doações. Por exemplo:
+    ```kotlin
+    fun registerDonation(donation: Donation) {
+        val databaseRef = FirebaseDatabase.getInstance().getReference("donations")
+        val donationId = databaseRef.push().key
+        donationId?.let {
+            databaseRef.child(it).setValue(donation)
+        }
+    }
+    ```
+  - Cada doação é representada por uma instância da classe **`Donation`**, contendo informações como:
+    ```kotlin
+    data class Donation(
+        val donorName: String?,
+        val type: String,
+        val date: String,
+        val imageUrl: String?
+    )
+    ```
+  - A interação com o Firebase inclui a anexação de imagens, utilizando o Firebase Storage:
+    ```kotlin
+    fun uploadImage(imageUri: Uri, callback: (String?) -> Unit) {
+        val storageRef = FirebaseStorage.getInstance().reference.child("donationImages/${UUID.randomUUID()}")
+        storageRef.putFile(imageUri)
+            .addOnSuccessListener { taskSnapshot ->
+                taskSnapshot.metadata?.reference?.downloadUrl?.addOnSuccessListener {
+                    callback(it.toString())
+                }
+            }
+            .addOnFailureListener {
+                callback(null)
+            }
+    }
+    ```
+  - Assim que a imagem é carregada, o URL é associado à doação no Firebase Realtime Database.
+
+### 6. **Escalas de Voluntários**
+- Voluntários registam a sua disponibilidade no ecrã **`CalendarScreen.kt`**.
+  - Cada voluntário preenche um formulário indicando os dias e horários em que está disponível. Os dados são enviados ao Firebase através do método **`registerAvailability`**:
+    ```kotlin
+    fun registerAvailability(volunteerId: String, availability: Availability) {
+        val databaseRef = FirebaseDatabase.getInstance().getReference("volunteerAvailability")
+        databaseRef.child(volunteerId).setValue(availability)
+    }
+    ```
+  - A classe **`Availability`** é usada para representar a disponibilidade:
+    ```kotlin
+    data class Availability(
+        val days: List<String>,
+        val times: List<String>
+    )
+    ```
+- Gestores organizam os turnos no **`ScheduleScreen.kt`**.
+  - O gestor consulta as disponibilidades dos voluntários no Firebase e utiliza o método **`generateSchedule`** para criar turnos:
+    ```kotlin
+    fun generateSchedule(availabilityList: List<Availability>): List<Schedule> {
+        // Algoritmo para organizar turnos com base nas disponibilidades
+    }
+    ```
+  - Os turnos criados são armazenados no Firebase:
+    ```kotlin
+    fun saveSchedule(schedule: Schedule) {
+        val databaseRef = FirebaseDatabase.getInstance().getReference("schedules")
+        databaseRef.push().setValue(schedule)
+    }
+    ```
+  - A classe **`Schedule`** organiza as informações:
+    ```kotlin
+    data class Schedule(
+        val date: String,
+        val volunteers: List<String>
+    )
+    ```
+
+### 7. **Relatórios**
+- O **`ReportScreen.kt`** apresenta relatórios detalhados, gerados pelo **`ReportRepositoryImpl.kt`**, com base nos dados armazenados no Firebase.
