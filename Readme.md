@@ -1,4 +1,4 @@
-# Apoio360 - README
+# Apoio360
 
 ## Constituição do Grupo  
 | Número  | Nome           | Email                  |
@@ -9,17 +9,9 @@
 | 26536   | Rodrigo Pilar  | a26536@alunos.ipca.pt |
 
 ## Introdução
-A aplicação **Apoio360** tem como objetivo modernizar a gestão de uma Loja Social que presta apoio a famílias em situação de vulnerabilidade. O projeto visa digitalizar e simplificar processos como o registo de beneficiários, gestão de doações e organização de turnos de voluntários, promovendo uma abordagem mais eficiente e intuitiva.
+A aplicação **Apoio360** moderniza a gestão de uma Loja Social, facilitando o apoio a famílias em situação de vulnerabilidade. Desenvolvida em **Kotlin** e utilizando **Firebase** para gestão de dados, a aplicação substitui processos manuais por uma solução digital. 
 
-Desenvolvida em **Kotlin** e utilizando o **Firebase** como backend para gestão de dados e infraestrutura, a aplicação concentra-se na criação de uma interface amigável e acessível. Com funcionalidades desenhadas para atender às necessidades específicas de voluntários e gestores, o **Apoio360** busca facilitar o dia a dia das operações da loja e melhorar o apoio prestado à comunidade.
-
-A aplicação "Loja Social" foi desenvolvida para modernizar a gestão da Loja Social de São Lázaro e São João de Souto, em Braga. Esta aplicação substitui processos manuais, como folhas de Excel e papel, por uma solução digital eficiente que facilita o registo de beneficiários, a gestão de doações e a organização de turnos de voluntários. Com uma interface simples e intuitiva, a aplicação torna os processos mais rápidos e acessíveis, promovendo um atendimento organizado e eficaz às famílias em situação de vulnerabilidade social e económica.
-
-A Loja Social é uma organização localizada em Braga, dedicada a fornecer apoio a famílias em situação de vulnerabilidade social e económica. Este apoio é realizado através da doação gratuita de bens essenciais, como roupa, calçado e utensílios domésticos. O objetivo principal da aplicação é facilitar a gestão operacional da loja, tornando os processos mais organizados, rápidos e acessíveis tanto para voluntários como para beneficiários.
-
-Atualmente, a gestão da loja é feita de forma manual, utilizando folhas de cálculo e comunicações informais, o que dificulta o acompanhamento e a eficiência no atendimento às famílias. Com a implementação da aplicação, espera-se automatizar o registo de beneficiários, gerir a capacidade da loja, registar doações de forma detalhada e criar escalas de voluntários com base nas suas disponibilidades.
-
-A aplicação foi desenvolvida para atender às necessidades específicas da loja, integrando ferramentas modernas como Firebase para gestão de dados em tempo real e Kotlin para desenvolvimento mobile. A interface foi desenhada para ser simples e intuitiva, garantindo que mesmo utilizadores com menor literacia digital possam utilizá-la de forma eficaz.
+Com funcionalidades como registo de beneficiários, gestão de doações e organização de turnos, o **Apoio360** garante eficiência e acessibilidade, atendendo às necessidades de voluntários e gestores.
 
 ### Tecnologias Utilizadas
 - **Kotlin:** Linguagem de programação principal.
