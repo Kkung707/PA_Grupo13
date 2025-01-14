@@ -14,11 +14,11 @@ A aplicação **Apoio360** moderniza a gestão de uma Loja Social, facilitando o
 Com funcionalidades como registo de beneficiários, gestão de doações e organização de turnos, o **Apoio360** garante eficiência e acessibilidade, atendendo às necessidades de voluntários e gestores.
 
 ### Tecnologias Utilizadas
-- **Kotlin:** Linguagem de programação principal.
-- **Firebase:** Base de dados em tempo real, autenticação e armazenamento.
-- **Room:** Armazenamento local para dados offline.
-- **Retrofit:** Comunicação com APIs externas.
-- **Android Studio:** IDE de desenvolvimento.
+- **Kotlin:** Linguagem de programação principal (versão 1.6.21).
+- **Firebase:** Base de dados em tempo real, autenticação e armazenamento (SDK 31.0.1).
+- **Room:** Armazenamento local para dados offline (versão 2.4.2).
+- **Retrofit:** Comunicação com APIs externas (versão 2.9.0).
+- **Android Studio:** IDE de desenvolvimento (versão Flamingo 2022.1.1).
 
 ## Funcionalidades Principais
 - **Gestão de Beneficiários:** Registo e consulta de dados.
@@ -92,59 +92,59 @@ No final do dia, o colaborador organiza os dados e verifica os relatórios no ec
 ```plaintext
 app/
 ├── src/
-│   ├── main/
-│   │   └── java/com/example/LojaSocial/
-│   │       ├── MainActivity.kt (Classe principal que configura a navegação e inicializa dependências como Firebase)
-│   │       ├── data/
-│   │       │   ├── local/
-│   │       │   │   ├── RoomDatabase.kt (Configura a base de dados local Room e regista tabelas)
-│   │       │   │   └── dao/
-│   │       │   │       └── BeneficiaryDao.kt (Interface para aceder e manipular dados de beneficiários na base de dados local)
-│   │       │   ├── remote/
-│   │       │   │   ├── api/
-│   │       │   │   │   └── FirebaseService.kt (Implementa serviços de interação com o Firebase, como atualizações em tempo real)
-│   │       │   │   ├── model/
-│   │       │   │   │   ├── Beneficiary.kt (Modelo de dados para representar beneficiários)
-│   │       │   │   │   ├── Donation.kt (Modelo de dados para representar doações)
-│   │       │   │   │   └── Schedule.kt (Modelo de dados para representar escalas de voluntários)
-│   │       │   └── repository/
-│   │       │       ├── BeneficiaryRepositoryImpl.kt (Repositório que implementa a lógica para aceder e sincronizar dados de beneficiários com o Firebase e Room)
-│   │       │       ├── DonationRepositoryImpl.kt (Repositório que implementa a lógica para registo e armazenamento de doações)
-│   │       │       └── ScheduleRepositoryImpl.kt (Repositório que implementa a lógica para criar e gerir escalas de voluntários)
-│   │       │   
-│   │       ├── domain/
-│   │       │   ├── model/
-│   │       │   │   ├── BeneficiaryDomain.kt (Modelo de domínio que encapsula dados do beneficiário para lógica de negócio)
-│   │       │   │   ├── DonationDomain.kt (Modelo de domínio que encapsula dados de doações para lógica de negócio)
-│   │       │   │   └── ScheduleDomain.kt (Modelo de domínio que encapsula dados de escalas para lógica de negócio)
-│   │       │   └── use_case/
-│   │       │       ├── GetBeneficiaryUseCase.kt (Caso de uso que coordena a obtenção de dados de beneficiários)
-│   │       │       ├── RegisterDonationUseCase.kt (Caso de uso que coordena o registo de doações)
-│   │       │       └── OrganizeScheduleUseCase.kt (Caso de uso que coordena a organização de escalas de voluntários)
-│   │       │
-│   │       ├── presentation/
-│   │       │   ├── beneficiary/
-│   │       │   │   ├── BeneficiaryListScreen.kt (Ecrã que exibe a lista de beneficiários e permite interação com os dados)
-│   │       │   │   └── BeneficiaryViewModel.kt (ViewModel que gere a lógica para o ecrã de lista de beneficiários)
-│   │       │   ├── check_in/
-│   │       │   │   ├── CheckInScreen.kt (Ecrã para registar check-ins e check-outs de beneficiários)
-│   │       │   │   └── CheckInViewModel.kt (ViewModel que gere a lógica para o ecrã de check-in)
-│   │       │   ├── donation/
-│   │       │   │   ├── DonationScreen.kt (Ecrã para registar novas doações e visualizar informações relacionadas)
-│   │       │   │   └── DonationViewModel.kt (ViewModel que gere a lógica para o ecrã de doações)
-│   │       │   └── schedule/
-│   │       │       ├── CalendarScreen.kt (Ecrã para voluntários registarem a sua disponibilidade)
-│   │       │       ├── ScheduleScreen.kt (Ecrã para gestores organizarem turnos de voluntários)
-│   │       │       └── ScheduleViewModel.kt (ViewModel que gere a lógica para o ecrã de organização de escalas)
-│   │       │
-│   │       ├── utils/
-│   │       │   └── Extensions.kt (Funções utilitárias e extensões utilizadas em várias partes da aplicação)
-│   │       │
-│   │       └── di/
-│   │           ├── FirebaseModule.kt (Configura as dependências necessárias para integrar o Firebase)
-│   │           ├── RoomModule.kt (Configura as dependências necessárias para a base de dados Room)
-│   │           └── RepositoryModule.kt (Configura as dependências necessárias para os repositórios de dados)
-│   │
+│    └── main/
+│       └── java/com/example/LojaSocial/
+│           ├── MainActivity.kt (Classe principal que configura a navegação e inicializa dependências como Firebase)
+│           ├── data/
+│           │   ├── local/
+│           │   │   ├── RoomDatabase.kt (Configura a base de dados local Room e regista tabelas)
+│           │   │   └── dao/
+│           │   │       └── BeneficiaryDao.kt (Interface para aceder e manipular dados de beneficiários na base de dados local)
+│           │   ├── remote/
+│           │   │   ├── api/
+│           │   │   │   └── FirebaseService.kt (Implementa serviços de interação com o Firebase, como atualizações em tempo real)
+│           │   │   ├── model/
+│           │   │       ├── Beneficiary.kt (Modelo de dados para representar beneficiários)
+│           │   │       ├── Donation.kt (Modelo de dados para representar doações)
+│           │   │       └── Schedule.kt (Modelo de dados para representar escalas de voluntários)
+│           │   └── repository/
+│           │       ├── BeneficiaryRepositoryImpl.kt (Repositório que implementa a lógica para aceder e sincronizar dados de beneficiários com o Firebase e Room)
+│           │       ├── DonationRepositoryImpl.kt (Repositório que implementa a lógica para registo e armazenamento de doações)
+│           │       └── ScheduleRepositoryImpl.kt (Repositório que implementa a lógica para criar e gerir escalas de voluntários)
+│           │   
+│           ├── domain/
+│           │   ├── model/
+│           │   │   ├── BeneficiaryDomain.kt (Modelo de domínio que encapsula dados do beneficiário para lógica de negócio)
+│           │   │   ├── DonationDomain.kt (Modelo de domínio que encapsula dados de doações para lógica de negócio)
+│           │   │   └── ScheduleDomain.kt (Modelo de domínio que encapsula dados de escalas para lógica de negócio)
+│           │   └── use_case/
+│           │       ├── GetBeneficiaryUseCase.kt (Caso de uso que coordena a obtenção de dados de beneficiários)
+│           │       ├── RegisterDonationUseCase.kt (Caso de uso que coordena o registo de doações)
+│           │       └── OrganizeScheduleUseCase.kt (Caso de uso que coordena a organização de escalas de voluntários)
+│           │
+│           ├── presentation/
+│           │   ├── beneficiary/
+│           │   │   ├── BeneficiaryListScreen.kt (Ecrã que exibe a lista de beneficiários e permite interação com os dados)
+│           │   │   └── BeneficiaryViewModel.kt (ViewModel que gere a lógica para o ecrã de lista de beneficiários)
+│           │   ├── check_in/
+│           │   │   ├── CheckInScreen.kt (Ecrã para registar check-ins e check-outs de beneficiários)
+│           │   │   └── CheckInViewModel.kt (ViewModel que gere a lógica para o ecrã de check-in)
+│           │   ├── donation/
+│           │   │   ├── DonationScreen.kt (Ecrã para registar novas doações e visualizar informações relacionadas)
+│           │   │   └── DonationViewModel.kt (ViewModel que gere a lógica para o ecrã de doações)
+│           │   └── schedule/
+│           │       ├── CalendarScreen.kt (Ecrã para voluntários registarem a sua disponibilidade)
+│           │       ├── ScheduleScreen.kt (Ecrã para gestores organizarem turnos de voluntários)
+│           │       └── ScheduleViewModel.kt (ViewModel que gere a lógica para o ecrã de organização de escalas)
+│           │
+│           ├── utils/
+│           │   └── Extensions.kt (Funções utilitárias e extensões utilizadas em várias partes da aplicação)
+│           │
+│           └── di/
+│               ├── FirebaseModule.kt (Configura as dependências necessárias para integrar o Firebase)
+│               ├── RoomModule.kt (Configura as dependências necessárias para a base de dados Room)
+│               └── RepositoryModule.kt (Configura as dependências necessárias para os repositórios de dados)
+│    
 └── build.gradle.kts (Ficheiro de configuração do Gradle para o projeto)
 ```
 
