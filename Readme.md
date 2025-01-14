@@ -1,4 +1,8 @@
 # Apoio360
+**Curso:** Licenciatura em Engenharia de Sistemas Informáticos, 3.º Ano  
+**Unidade Curricular:** Projeto Aplicado  
+**Docente:** Professora Patrícia Leite e Nuno Mendes  
+**Ano Letivo:** 2024/2025  
 
 ## Constituição do Grupo  
 | Número  | Nome           | Email                  |
